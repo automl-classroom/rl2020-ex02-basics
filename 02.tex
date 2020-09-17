@@ -1,0 +1,85 @@
+\documentclass{exam}
+\usepackage{amsmath, amsfonts}
+\usepackage{verbatim}
+\usepackage{graphicx}
+\usepackage[super]{nth}
+
+\DeclareMathOperator*{\argmin}{argmin}
+
+\usepackage[hyperfootnotes=false]{hyperref}
+
+\usepackage[usenames,dvipsnames]{color}
+\newcommand{\note}[1]{
+	\noindent~\\
+	\vspace{0.25cm}
+	\fcolorbox{Red}{Orange}{\parbox{0.99\textwidth}{#1\\}}
+	%{\parbox{0.99\textwidth}{#1\\}}
+	\vspace{0.25cm}
+}
+
+
+%\input{../macros}
+%\renewcommand{\hide}[1]{#1}
+
+\qformat{\thequestion. \textbf{\thequestiontitle}\hfill}
+\bonusqformat{\thequestion. \textbf{\thequestiontitle}\hfill}
+
+\pagestyle{headandfoot}
+
+%%%%%% MODIFY FOR EACH SHEET!!!! %%%%%%
+\newcommand{\duedate}{28.10.2020 (08:00)}
+\newcommand{\due}{{\bf This assignment is due on \duedate.} }
+\firstpageheader
+{Due: \duedate}
+{{\bf\lecture}\\ \assignment{1}}
+{\lectors\\ \semester}
+
+\runningheader
+{Due: \duedate}
+{\assignment{2}}
+{\semester}
+%%%%%% MODIFY FOR EACH SHEET!!!! %%%%%%
+
+\firstpagefooter
+{}
+{\thepage}
+{}
+
+\runningfooter
+{}
+{\thepage}
+{}
+
+\headrule
+\pointsinrightmargin
+\bracketedpoints
+\marginpointname{pt.}
+
+
+\begin{document}
+
+\noindent
+This week you will implement the fundamental algorithms of policy and value iteration. You'll see how your agent's behaviour changes over time and hopefully have your first successful training runs.
+
+\begin{questions}
+	\titledquestion{Policy Iteration for the MarsRover} 
+	In the \emph{env.py} file you'll find the first environment we'll work with: the MarsRover. You have seen it as an example in the lecture: the agent can move left or right with each step and dhould ideally move to the rightmost state. 
+	In this first exercise, the environment will be deterministic, that mean the rover will always execute the given action. 
+	Your task is to complete the given code stub in \emph{policy\_iteration.py} with the algorithm from the lecture.
+	
+    \titledquestion{Value Iteration for the probibalistic MarsRover} 
+	For this second exercise, we modify the MarsRover environment, now the rover may or may not execute the requested action, the probability is 50\%. You will complete the code in \emph{value\_iteration.py} in order to train an agent on this variation of our environment.
+	
+	\titledquestion{Exploration \& Observations from both algorithms}
+	Now we ask you to experiment with different environment setups in the file \emph{observations.py}. If you need a reference on how to create an environment, feel free to look at the code for the previous exercises.
+	Please document your experiences and observations in a file called \emph{observations.txt}. Use one line for each answer. The questions for you to answer are:
+	\begin{itemize}
+		\item How many iterations does value iteration run for if the transition probabilities are 1 for all state-action pairs?
+		\item What part of the environment can you change (except for the transition probabilities!) to change this?
+		\item In the mean, which method takes make iterations for transition probabilities of 1?
+		\item Which method takes more iterations for transition probabilities of 0.5?
+		\item Does changing $\gamma$ change the resulting policy or value function?
+	\end{itemize}
+\end{questions}
+
+\end{document}
