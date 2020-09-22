@@ -1,20 +1,32 @@
 import unittest
-
+import numpy as np
+#from value_iteration import run_value_iteration, update_value_function
+from solutions import run_value_iteration, update_value_function
 
 class TestValueIteration(unittest.TestCase):
 
-    def test_value_iteration():
-        #First, check that env is not changed
-        #Get state, done, etc.
-        #Execute vi. At each step check that:
-        #It aborts if v_i == v_i+1
-        #The values for 1-3 are at most 0
-        #The values for 4 0 or positive and 1 should be greater than -2
+    def test_value_quality(self):
+        r = []
+        steps = []
+        for _ in range(10):
+            v, i, final_reward = run_value_iteration()
+            r.append(final_reward)
+            steps.append(i)
+        self.assertTrue(np.mean(steps) == 1)
+        self.assertTrue(sum(r) > 0)
 
-        #Get an infinite run setup and confirm it runs forever?
+    def test_single_update(self):
+        new_v, converged = update_value_function([0, 0], 0, 1, 1, 10)
+        self.assertTrue(new_v[0] > 0)
+        self.assertFalse(converged)
 
-        #Get a single iteration setup at check it's a single iteration?
-
+    def test_convergence(self):
+        _, converged = update_value_function([0, 0], 0, 1, 1, 10)
+        self.assertTrue(converged)
+        _, converged = update_value_function([0, 0], 0, 1, 1, 10)
+        self.assertTrue(converged)
+        _, converged = update_value_function([0, 0], 0, 1, 1, 10)
+        self.assertTrue(converged)
 
 if __name__ == '__main__':
     unittest.main()

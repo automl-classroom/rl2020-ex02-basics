@@ -15,7 +15,7 @@ class MarsRover:
     def step(self, action):
         done = False
         self.c_steps += 1
-        follow_action = np.random.choice([0, 1], p=[1-self.probs[self.position][action],self.probs[self.position][action]])
+        follow_action = np.random.choice([0, 1], p=[1-self.probs[self.position][int(action)],self.probs[self.position][int(action)]])
         if not follow_action:
             action = 1 - action
 

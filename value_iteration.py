@@ -1,3 +1,4 @@
+import numpy as np
 from env import MarsRover
 
 #TODO: complete this method
@@ -19,7 +20,7 @@ def run_value_iteration(transition_probabilities=np.ones((5,2))*0.5, rewards=[1,
 
     print(f"Your agent achieved a final accumulated reward of {final_reward} after {i} update steps.")
 
-    return pi, i, final_reward
+    return v, i, final_reward
 
 def evaluate_agent(v, env):
     state = env.reset()

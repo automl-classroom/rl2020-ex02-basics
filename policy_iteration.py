@@ -1,8 +1,9 @@
+import numpy as np
 from env import MarsRover
 
 #TODO: complete this method
-def update_policy():
-    return new_pi, converged
+def update_policy(qs, pi, state, new_state, action, reward, gamma=0.9):
+    return new_qs, new_pi, converged
 
 #TODO: complete this method
 def run_policy_iteration(transition_probabilities=np.ones((5,2)), rewards=[1, 0, 0, 0, 10], horizon=10):
