@@ -22,11 +22,7 @@ class TestValueIteration(unittest.TestCase):
 
     def test_convergence(self):
         _, converged = update_value_function([0, 0], 0, 1, 1, 10)
-        self.assertTrue(converged)
-        _, converged = update_value_function([0, 0], 0, 1, 1, 10)
-        self.assertTrue(converged)
-        _, converged = update_value_function([0, 0], 0, 1, 1, 10)
-        self.assertTrue(converged)
+        self.assertFalse(converged)
 
 if __name__ == '__main__':
     unittest.main()

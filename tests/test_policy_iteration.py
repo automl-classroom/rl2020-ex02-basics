@@ -30,11 +30,7 @@ class TestPolicyIteration(unittest.TestCase):
             self.assertTrue(all([np.any(np.where(new_qs[state] == np.array(qs)[state].max()) == new_pi[state]) for state in np.arange(len(new_qs))]))
 
     def test_convergence(self):
-        _, _, converged = update_policy([[0, 0], [0, 0]], [0, 1], 0, 1, 1, 10)
-        self.assertTrue(converged)
-        _, _, converged = update_policy([[0, 0], [0, 0]], [0, 1], 0, 1, 1, 10)
-        self.assertTrue(converged)
-        _, _, converged = update_policy([[0, 0], [0, 0]], [0, 1], 0, 1, 1, 10)
+        _, _, converged = update_policy([[1, 0], [1, 0]], [0, 0], 0, 1, 1, 0)
         self.assertTrue(converged)
 
 if __name__ == '__main__':
