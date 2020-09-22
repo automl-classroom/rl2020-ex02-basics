@@ -5,7 +5,7 @@ def update_policy():
     return new_pi, converged
 
 #TODO: complete this method
-def run_policy_iteration(transition_probabilities=[[0, 1] for _ in range 5], rewards=[1, 0, 0, 0, 10], horizon=10):
+def run_policy_iteration(transition_probabilities=np.ones((5,2)), rewards=[1, 0, 0, 0, 10], horizon=10):
     env = MarsRover(transition_probabilities, rewards, horizon)
     done = False
     state = env.reset()
