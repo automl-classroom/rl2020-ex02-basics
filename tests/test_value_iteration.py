@@ -1,7 +1,6 @@
 import unittest
 import numpy as np
-#from value_iteration import run_value_iteration, update_value_function
-from solutions import run_value_iteration, update_value_function
+from value_iteration import run_value_iteration, update_value_function
 
 class TestValueIteration(unittest.TestCase):
 

@@ -1,8 +1,7 @@
 import unittest
 import numpy as np
 
-#from policy_iteration import run_policy_iteration, update_policy
-from solutions import run_policy_iteration, update_policy
+from policy_iteration import run_policy_iteration, update_policy
 
 class TestPolicyIteration(unittest.TestCase):
 
