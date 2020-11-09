@@ -26,7 +26,7 @@ class TestPolicyIteration(unittest.TestCase):
             pos = np.random.randint(7)+1
             qs = np.random.randint(5, size=(8, 2))
             new_qs, new_pi, _ = update_policy(qs, np.random.randint(2, size=8), pos, pos + (1 * -np.random.randint(2)), np.random.randint(2), np.random.randint(10))
-            self.assertTrue(all([np.any(np.where(new_qs[state] == np.array(qs)[state].max()) == new_pi[state]) for state in np.arange(len(new_qs))]))
+            self.assertTrue(all([np.any(np.where(new_qs[state] == new_qs[state].max()) == new_pi[state]) for state in np.arange(len(new_qs))]))
 
     def test_convergence(self):
         _, _, converged = update_policy([[1, 0], [1, 0]], [0, 0], 0, 1, 1, 0)
