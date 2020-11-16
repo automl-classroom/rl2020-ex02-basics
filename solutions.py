@@ -89,7 +89,7 @@ def evaluate_agent(v, env):
     done = False
     r_acc = 0
     while not done:
-        action = max(v[max(state - 1, 0)], v[min(state + 1, 5)])
+        action = max(v[max(state - 1, 0)], v[min(state + 1, 4)])
         new_state, reward, done = env.step(action)
         r_acc += reward
     return r_acc
