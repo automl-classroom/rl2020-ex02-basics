@@ -1,3 +1,5 @@
+from random import randint
+
 import numpy as np
 from env import MarsRover
 
@@ -89,7 +91,12 @@ def evaluate_agent(v, env):
     done = False
     r_acc = 0
     while not done:
-        action = max(v[max(state - 1, 0)], v[min(state + 1, 4)])
+        v_left = v[max(state - 1, 0)]
+        v_right = v[min(state + 1, 4)]
+
+        equal = v_left == v_right
+        action = randint(0, 1) if equal else np.argmax([v_left, v_right])
+
         new_state, reward, done = env.step(action)
         r_acc += reward
     return r_acc
